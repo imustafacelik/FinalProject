@@ -17,7 +17,7 @@ namespace Core.DataAccess.EntityFramework
             //IDisposible pattern implementation of c#
             using (TContext context = new TContext())
             {
-                var addedEntity = context.Entry(entity); 
+                var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;   //set et
                 context.SaveChanges(); // değişikliği kaydet (ekle)
             }
