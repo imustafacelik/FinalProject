@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -28,7 +29,7 @@ namespace Business.Concrete
             _categoryService=categoryService;
         }
 
-        //[SecuredOperation("product.add,admin")]
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
@@ -51,6 +52,8 @@ namespace Business.Concrete
 
         }
 
+
+        //[CacheAspect]    //key , value
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour == 12)
