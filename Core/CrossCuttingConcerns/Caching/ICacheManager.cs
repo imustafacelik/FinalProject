@@ -11,7 +11,7 @@ namespace Core.CrossCuttingConcerns.Caching
         void Add(string key, object value,int duration);
         bool IsAdd(string key);
         void Remove(string key);
-        void RemoveByPatterns(string  pattern);
+        void RemoveByPattern(string  pattern);
 
     }
 }
